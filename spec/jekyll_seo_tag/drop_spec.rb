@@ -478,7 +478,7 @@ RSpec.describe Jekyll::SeoTag::Drop do
     let(:config) { { :url => "http://example.com" } }
 
     context "when canonical url is specified for a page" do
-      let(:canonical_url) { "https://github.com/jekyll/jekyll-seo-tag/" }
+      let(:canonical_url) { "https://github.com/jekyll/jekyll-seo-tag/page.html" }
       let(:page_meta) { { "title" => "page title", "canonical_url" => canonical_url } }
 
       it "uses specified canonical url" do
@@ -487,8 +487,8 @@ RSpec.describe Jekyll::SeoTag::Drop do
     end
 
     context "when canonical url is not specified for a page" do
-      it "uses site specific canonical url" do
-        expect(subject.canonical_url).to eq("http://example.com/page.html")
+      it "uses site specific canonical url without html extension" do
+        expect(subject.canonical_url).to eq("http://example.com/page")
       end
     end
   end

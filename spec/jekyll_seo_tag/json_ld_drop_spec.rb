@@ -162,7 +162,7 @@ RSpec.describe Jekyll::SeoTag::JSONLDDrop do
     expect(subject["mainEntityOfPage"]).to have_key("@type")
     expect(subject["mainEntityOfPage"]["@type"]).to eql("WebPage")
     expect(subject["mainEntityOfPage"]).to have_key("@id")
-    expect(subject["mainEntityOfPage"]["@id"]).to eql("/page.html")
+    expect(subject["mainEntityOfPage"]["@id"]).to eql("/page")
   end
 
   it "returns sameAs" do
@@ -173,7 +173,7 @@ RSpec.describe Jekyll::SeoTag::JSONLDDrop do
 
   it "returns the url" do
     expect(subject).to have_key("url")
-    expect(subject["url"]).to eql("/page.html")
+    expect(subject["url"]).to eql("/page")
   end
 
   context "with null values" do

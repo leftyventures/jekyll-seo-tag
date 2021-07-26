@@ -2,6 +2,8 @@
 
 require "jekyll"
 require "jekyll-seo-tag/version"
+require "jekyll-seo-tag/drop"
+require "jekyll-seo-tag/drop_patch"
 
 module Jekyll
   class SeoTag < Liquid::Tag

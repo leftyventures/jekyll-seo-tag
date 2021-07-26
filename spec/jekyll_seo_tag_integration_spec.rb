@@ -144,9 +144,9 @@ RSpec.describe Jekyll::SeoTag do
     let(:site) { make_site("url" => "http://example.invalid") }
 
     it "uses the site url to build the seo url" do
-      expected = %r!<link rel="canonical" href="http://example.invalid/page.html" />!
+      expected = %r!<link rel="canonical" href="http://example.invalid/page" />!
       expect(output).to match(expected)
-      expected = %r!<meta property="og:url" content="http://example.invalid/page.html" />!
+      expected = %r!<meta property="og:url" content="http://example.invalid/page" />!
       expect(output).to match(expected)
     end
 
@@ -166,9 +166,9 @@ RSpec.describe Jekyll::SeoTag do
       let(:site) { make_site("url" => "http://example.invalid", "baseurl" => "/foo") }
 
       it "uses baseurl to build the seo url" do
-        expected = %r!<link rel="canonical" href="http://example.invalid/foo/page.html" />!
+        expected = %r!<link rel="canonical" href="http://example.invalid/foo/page" />!
         expect(output).to match(expected)
-        expected = %r!<meta property="og:url" content="http://example.invalid/foo/page.html" />!
+        expected = %r!<meta property="og:url" content="http://example.invalid/foo/page" />!
         expect(output).to match(expected)
       end
     end
@@ -305,8 +305,8 @@ RSpec.describe Jekyll::SeoTag do
           <meta name="generator" content="Jekyll v#{Jekyll::VERSION}" />
           <meta property="og:title" content="Foo" />
           <meta property="og:locale" content="en_US" />
-          <link rel="canonical" href="http://example.invalid/page.html" />
-          <meta property="og:url" content="http://example.invalid/page.html" />
+          <link rel="canonical" href="http://example.invalid/page" />
+          <meta property="og:url" content="http://example.invalid/page" />
           <meta property="og:site_name" content="Foo" />
         HTML
         expect(output).to match(expected)
